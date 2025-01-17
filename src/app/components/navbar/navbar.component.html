@@ -1,0 +1,13 @@
+<nav class="p-4 border-b border-black">
+  <ul class="flex gap-4">
+    @for (item of links; track item.label) {
+    <li>
+      <button ubButton variant="link">
+        <a href={{item.routerLink}} class="font-bold" tabIndex={0}>
+          {{item.label}}
+        </a>
+      </button>
+    </li>
+    }
+  </ul>
+</nav>

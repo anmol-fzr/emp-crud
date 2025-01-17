@@ -1,40 +1,60 @@
 <div class="flex flex-col gap-4">
+  <h2>Employee List Page</h2>
 
-<h2>Employee List Page</h2>
+  @if (isLoading) {
+  <div>loading...</div>
+  }
+  @else {
+  <table ubTable>
+    <caption ubTableCaption>A list of Employees.</caption>
 
-<table ubTable>
-  <caption ubTableCaption>A list of your recent invoices.</caption>
+    <thead ubTableHeader>
+      <tr ubTableRow>
+        <th ubTableHead class="w-[250px]">Name</th>
+        <th ubTableHead>Email</th>
+        <th ubTableHead>Age</th>
+        <th ubTableHead class="text-right">Amount</th>
+      </tr>
+    </thead>
 
-  <thead ubTableHeader>
-    <tr ubTableRow>
-      <th ubTableHead class="w-[100px]">Invoice</th>
-      <th ubTableHead>Status</th>
-      <th ubTableHead>Method</th>
-      <th ubTableHead class="text-right">Amount</th>
-    </tr>
-  </thead>
+    <tbody ubTableBody>
+      @for (item of data; track item.id) {
+      <tr ubTableRow>
+        <td ubTableCell class="font-medium">{{ item.firstName }} {{ item.lastName }}</td>
+        <td ubTableCell class="lowercase">{{ item.email }}</td>
+        <td ubTableCell>{{ item.age }}</td>
+        <td ubTableCell class="text-right">$250.00</td>
+      </tr>
+      }
+    </tbody>
+  </table>
+  }
 
-  <tbody ubTableBody>
-    <tr ubTableRow>
-      <td ubTableCell class="font-medium">INV001</td>
-      <td ubTableCell>Paid</td>
-      <td ubTableCell>Credit Card</td>
-      <td ubTableCell class="text-right">$250.00</td>
-    </tr>
-    <tr ubTableRow>
-      <td ubTableCell class="font-medium">INV001</td>
-      <td ubTableCell>Paid</td>
-      <td ubTableCell>Credit Card</td>
-      <td ubTableCell class="text-right">$250.00</td>
-    </tr>
-
-    <tr ubTableRow>
-      <td ubTableCell class="font-medium">INV001</td>
-      <td ubTableCell>Paid</td>
-      <td ubTableCell>Credit Card</td>
-      <td ubTableCell class="text-right">$250.00</td>
-    </tr>
-  </tbody>
-</table>
+  <nav ubPagination>
+    <ul ubPaginationContent>
+      <li ubPaginationItem>
+        <button (click)="previousPage()" >
+          Prev
+        </button>
+      </li>
+      <li ubPaginationItem>
+        <a ubPaginationLink href="#">1</a>
+      </li>
+      <li ubPaginationItem>
+        <a ubPaginationLink href="#" isActive>2</a>
+      </li>
+      <li ubPaginationItem>
+        <a ubPaginationLink href="#">3</a>
+      </li>
+      <li ubPaginationItem>
+        <ub-pagination-ellipsis />
+      </li>
+      <li ubPaginationItem>
+        <button (click)="nextPage()">
+          Next
+        </button>
+      </li>
+    </ul>
+  </nav>
 
 </div>

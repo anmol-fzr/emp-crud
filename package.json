@@ -24,7 +24,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "primeng": "^19.0.5",
-    "rxjs": "~7.8.0",
+    "rxjs": "~7.8.1",
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7",
     "tailwindcss-primeui": "^0.4.0",
